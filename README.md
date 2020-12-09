@@ -21,7 +21,7 @@ Take a look around at the project files that come out of the box with a new ASP.
 
 ## Database
 
-Run the [dog walker sql script](./assets/DogWalker.sql) to create database. Take a moment and look through the tables that get created.
+Run the [dog walker sql script](https://github.com/nashville-software-school/bangazon-inc/blob/cohort-43/book-2-mvc/chapters/assets/DogWalker.sql) to create database. Take a moment and look through the tables that get created.
 
 ## Configuration
 
