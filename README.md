@@ -11,6 +11,10 @@ In this chapter you'll create a new MVC project to start the Nashville dog walki
 1. Choose _Web Application (Model-View-Controller)_
 1. Click _Ok_
 1. Add the Nuget package for `Microsoft.Data.SqlClient`
+   ```sh
+   dotnet add package Microsoft.Data.SqlClient
+   dotnet restore
+   ```
 
 Take a look around at the project files that come out of the box with a new ASP.NET MVC project. It already has folders for Models, Views, and Controllers. It has a `wwwroot` folder which contains some static assets like javascript and css files. It has a `Startup.cs` file where we can configure certain things about our web application if we choose.
 
