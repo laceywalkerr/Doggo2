@@ -11,6 +11,7 @@ In this chapter you'll create a new MVC project to start the Nashville dog walki
 1. Choose _Web Application (Model-View-Controller)_
 1. Click _Ok_
 1. Add the Nuget package for `Microsoft.Data.SqlClient`
+   (Tab into Doggo, where Program.cs and Startup.cs are visable within the folder)
    ```sh
    dotnet add package Microsoft.Data.SqlClient
    dotnet restore
