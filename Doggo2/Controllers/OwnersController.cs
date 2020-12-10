@@ -21,15 +21,15 @@ namespace Doggo2.Controllers
         // GET: OwnersController
         public ActionResult Index()
         {
-            //List<Owner> owners = _ownerRepo.GetAllOwners();
-            return View();
+            List<Owner> owners = _ownerRepo.GetAllOwners();
+            return View(owners);
         }
 
         // GET: OwnersController/Details/5
         public ActionResult Details(int id)
         {
-            //Owner owner = _ownerRepo.GetOwnerById(id);
-            return View();
+            Owner owner = _ownerRepo.GetOwnerById(id);
+            return View(owner);
         }
 
         // GET: OwnersController/Create

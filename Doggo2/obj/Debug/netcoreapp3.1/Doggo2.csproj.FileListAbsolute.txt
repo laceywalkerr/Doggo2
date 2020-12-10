@@ -129,3 +129,4 @@ C:\Users\Lacey\workspace\doggo2\Doggo2\obj\Debug\netcoreapp3.1\Doggo2.pdb
 C:\Users\Lacey\workspace\doggo2\Doggo2\obj\Debug\netcoreapp3.1\Doggo2.genruntimeconfig.cache
 C:\Users\Lacey\workspace\doggo2\Doggo2\obj\Debug\netcoreapp3.1\Razor\Views\Walkers\Index.cshtml.g.cs
 C:\Users\Lacey\workspace\doggo2\Doggo2\obj\Debug\netcoreapp3.1\Razor\Views\Walkers\Details.cshtml.g.cs
+C:\Users\Lacey\workspace\doggo2\Doggo2\obj\Debug\netcoreapp3.1\Razor\Views\Owners\Index.cshtml.g.cs

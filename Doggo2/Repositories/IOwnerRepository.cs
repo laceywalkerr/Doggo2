@@ -7,9 +7,9 @@ using Microsoft.Data.SqlClient;
 
 namespace Doggo2.Repositories
 {
-    public class IOwnerRepository
+    public interface IOwnerRepository
     {
-        //List<Walker> GetAllOwners();
-        //Walker GetOwnerById(int id);
+        List<Owner> GetAllOwners();
+        Owner GetOwnerById(int id);
     }
 }

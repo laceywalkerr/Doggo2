@@ -8,7 +8,7 @@ using Doggo2.Models;
 
 namespace Doggo2.Repositories
 {
-    public class OwnerRepository
+    public class OwnerRepository : IOwnerRepository
     {
         private readonly IConfiguration _config;
 
