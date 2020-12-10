@@ -1,4 +1,5 @@
-﻿using Doggo2.Repositories;
+﻿using Doggo2.Models;
+using Doggo2.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,12 +21,14 @@ namespace Doggo2.Controllers
         // GET: OwnersController
         public ActionResult Index()
         {
+            //List<Owner> owners = _ownerRepo.GetAllOwners();
             return View();
         }
 
         // GET: OwnersController/Details/5
         public ActionResult Details(int id)
         {
+            //Owner owner = _ownerRepo.GetOwnerById(id);
             return View();
         }
 
