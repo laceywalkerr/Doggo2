@@ -1,3 +1,4 @@
+using Doggo2.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,7 @@ namespace Doggo2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<IWalkerRepository, WalkerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

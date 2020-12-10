@@ -1,24 +1,39 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Doggo2.Models;
+using Doggo2.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Controllers pass the objects to the views
+
 namespace Doggo2.Controllers
 {
     public class WalkersController : Controller
     {
+        private readonly IWalkerRepository _walkerRepo;
+
+        // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
+        public WalkersController(IWalkerRepository walkerRepository)
+        {
+            _walkerRepo = walkerRepository;
+        }
+
         // GET: WalkersController
         public ActionResult Index()
         {
-            return View();
+            List<Walker> walkers = _walkerRepo.GetAllWalkers();
+
+            return View(walkers);
         }
 
         // GET: WalkersController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Walker walker = _walkerRepo.GetWalkerById(id);
+            return View(walker);
         }
 
         // GET: WalkersController/Create

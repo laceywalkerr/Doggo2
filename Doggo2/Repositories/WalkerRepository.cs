@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace Doggo2.Repositories
 {
-    public class WalkerRepository
+    public class WalkerRepository : IWalkerRepository
     {
         private readonly IConfiguration _config;
 
         // The constructor accepts an IConfiguration object as a parameter. This class comes from the ASP.NET framework and is useful for retrieving things out of the appsettings.json file like connection strings.
+
+        // This is an interface
         public WalkerRepository(IConfiguration config)
         {
             _config = config;

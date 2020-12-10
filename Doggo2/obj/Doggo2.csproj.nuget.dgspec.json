@@ -43,6 +43,10 @@
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[2.1.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
