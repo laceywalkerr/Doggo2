@@ -315,6 +315,9 @@ Right click the Details method and select Add View. Keep the name "Details", sel
 
 Run the application and go to `/walkers/details/1`. Then go to `/walkers/details/999` to see that we get a 404 response back.
 
+## ERD
+![ERD](https://i.imgur.com/WXwtNiI.png)
+
 
 ## Exercise
 
@@ -322,5 +325,4 @@ Run the application and go to `/walkers/details/1`. Then go to `/walkers/details
 1. Go into the `Shared` folder in the `_Layout.cshtml` file. Add links for "Walkers" and "Owners" in the navbar. If you finish, try changing the views and the styling to your liking.
 1. **Challenge**: When viewing the details page of an owner, list all the dogs for that owner as well.
 
-## ERD
-![ERD](https://i.imgur.com/WXwtNiI.png)
+
