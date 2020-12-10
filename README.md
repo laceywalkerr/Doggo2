@@ -323,4 +323,4 @@ Run the application and go to `/walkers/details/1`. Then go to `/walkers/details
 1. **Challenge**: When viewing the details page of an owner, list all the dogs for that owner as well.
 
 ## ERD
-[ERD]!(https://i.imgur.com/WXwtNiI.png)
+![ERD](https://i.imgur.com/WXwtNiI.png)
