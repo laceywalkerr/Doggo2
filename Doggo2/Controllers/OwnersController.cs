@@ -81,7 +81,7 @@ namespace Doggo2.Controllers
                 _ownerRepo.UpdateOwner(owner);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
                 return View(owner);
             }
