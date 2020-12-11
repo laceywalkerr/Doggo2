@@ -11,5 +11,9 @@ namespace Doggo2.Repositories
     {
         List<Owner> GetAllOwners();
         Owner GetOwnerById(int id);
+        void UpdateOwner(Owner owner);
+
+        void DeleteOwner(int ownerId);
+        void AddOwner(Owner owner);
     }
 }
