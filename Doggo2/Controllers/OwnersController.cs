@@ -88,7 +88,7 @@ namespace Doggo2.Controllers
             {
                 return NotFound();
             }
-            return View();
+            return View(owner);
         }
 
         // POST: OwnersController/Delete/5
