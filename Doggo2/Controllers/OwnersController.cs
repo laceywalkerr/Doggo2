@@ -67,32 +67,40 @@ namespace Doggo2.Controllers
         // POST: OwnersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Owner owner)
         {
             try
             {
+                _ownerRepo.UpdateOwner(owner);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(owner);
             }
         }
 
         // GET: OwnersController/Delete/5
         public ActionResult Delete(int id)
         {
+            Owner owner = _ownerRepo.GetOwnerById(id);
+            if (owner == null)
+            {
+                return NotFound();
+            }
             return View();
         }
 
         // POST: OwnersController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Owner owner)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _ownerRepo.DeleteOwner(id);
+                return RedirectToAction("Index");
+
             }
             catch
             {
