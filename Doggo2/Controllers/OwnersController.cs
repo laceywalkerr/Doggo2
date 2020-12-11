@@ -33,12 +33,14 @@ namespace Doggo2.Controllers
         }
 
         // GET: OwnersController/Create
+        // GETTING THE FORM
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: OwnersController/Create
+        // POSTING THE FORM
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
