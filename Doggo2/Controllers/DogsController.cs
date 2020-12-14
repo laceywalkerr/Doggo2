@@ -35,9 +35,18 @@ namespace Doggo2.Controllers
         }
 
         // GET: DogController/Create
-        public ActionResult Create()
+        public ActionResult Create(Dog dog)
         {
-            return View();
+            try
+            {
+                _dogRepo.AddDog(dog);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                return View(dog);
+            }
         }
 
         // POST: DogController/Create
