@@ -35,6 +35,14 @@ namespace Doggo2.Controllers
         }
 
         // GET: DogController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: DogController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(Dog dog)
         {
             try
@@ -46,21 +54,6 @@ namespace Doggo2.Controllers
             catch (Exception ex)
             {
                 return View(dog);
-            }
-        }
-
-        // POST: DogController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
 

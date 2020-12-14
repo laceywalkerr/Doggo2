@@ -1,4 +1,5 @@
 ﻿using Doggo2.Models;
+using Doggo2.Models.ViewModels;
 using Doggo2.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -12,11 +13,17 @@ namespace Doggo2.Controllers
     public class OwnersController : Controller
     {
         private readonly IOwnerRepository _ownerRepo;
+        private IDogRepository _dogRepo;
+        private IWalkerRepository _walkerRepo;
+        private INeighborhoodRepository _neighborhoodRepo;
 
         // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
-        public OwnersController(IOwnerRepository ownerRepository)
+        public OwnersController(IOwnerRepository ownerRepository, IDogRepository dogRepository, IWalkerRepository walkerRepository, INeighborhoodRepository neighborhoodRepository)
         {
             _ownerRepo = ownerRepository;
+            _dogRepo = dogRepository;
+            _walkerRepo = walkerRepository;
+            _neighborhoodRepo = neighborhoodRepository;
         }
         // GET: OwnersController
         public ActionResult Index()
@@ -29,14 +36,37 @@ namespace Doggo2.Controllers
         public ActionResult Details(int id)
         {
             Owner owner = _ownerRepo.GetOwnerById(id);
-            return View(owner);
+            List<Dog> dogs = _dogRepo.GetDogsByOwnerId(owner.Id);
+            List<Walker> walkers = _walkerRepo.GetWalkersInNeighborhood(owner.NeighborhoodId);
+
+
+            OwnerProfileViewModel vm = new OwnerProfileViewModel()
+            {
+                Owner = owner,
+                Dog = dogs,
+                WalkersInNeighborhood = walkers
+            };
+
+            if (owner == null)
+            {
+                return NotFound();
+            }
+            return View(vm);
         }
 
         // GET: OwnersController/Create
         // GETTING THE FORM
         public ActionResult Create()
         {
-            return View();
+            List<Neighborhood> neighborhoods = _neighborhoodRepo.GetAll();
+
+            OwnerFormViewModel vm = new OwnerFormViewModel()
+            {
+                NeighborhoodOptions = neighborhoods,
+                Owner = new Owner()
+            };
+
+            return View(vm);
         }
 
         // POST: OwnersController/Create
