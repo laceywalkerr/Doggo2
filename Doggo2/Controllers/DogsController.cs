@@ -24,13 +24,14 @@ namespace Doggo2.Controllers
         public ActionResult Index()
         {
             List<Dog> dogs = _dogRepo.GetAllDogs();
-            return View();
+            return View(dogs);
         }
 
         // GET: DogController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Dog dog = _dogRepo.GetDogById(id);
+            return View(dog);
         }
 
         // GET: DogController/Create
