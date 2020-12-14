@@ -792,7 +792,7 @@ In this example we can see that the `Details` method of the Owners Controller is
 
 This works out fine if the page you're creating only requires owner information on it. Let's consider a more realistic scenario though. Say your designer asks that the Owner Details page of your application is a bit more complex. Here is the mockup you're given
 
-![](./images/DogWalkerMockup.png)
+![](https://i.imgur.com/oG367Ik.png)
 
 This View now seems to require more data than just an Owner object. There's now information on the owner's dogs and walkers as well.
 
@@ -800,7 +800,7 @@ The problem is that in ASP<span>.NET</span>, we can only pass a View **one** typ
 
 The answer is to wrap all the things up in a single class called a View Model. The difference between regular models and view models is that regular models are meant to mimic the shape of our database tables. View models are meant to mimic the shape of our html pages. It may be helpful to think of view models as similar to react state. Looking at the mockup again, what are the things on the page that would belong in state?
 
-![](./images/DogWalkerMockupAnnotated.png)
+![](https://i.imgur.com/oG367Ik.png)
 
 - An Owner object
 - A list of Dogs
@@ -1280,4 +1280,4 @@ Now update the view to accept an instance of an `OwnerFormViewModel` and change 
 
 1. Try to implement the following design for the walker details page at `/walkers/details/{id}`. Hint: Use the `DateTime` class to help format the date strings.
 
-![](./images/DW_Walker_Snapshot.png)
+![](https://i.imgur.com/aCD0SKf.png)
