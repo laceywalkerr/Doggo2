@@ -33,7 +33,7 @@ namespace Doggo2.Repositories
                 {
 
                     cmd.CommandText = @"
-                        SELECT d.Id, d.[Name], d.Breed, d.Notes, d.ImageUrl, d.OwnerId                
+                        SELECT d.Id, d.[Name], d.Breed, d.Notes, d.ImageUrl, d.OwnerId,  o.[Name] as Owner                
                         FROM Dog d 
                         JOIN Owner o ON d.OwnerId = o.Id
                     ";
@@ -79,7 +79,7 @@ namespace Doggo2.Repositories
 
                 {
                     cmd.CommandText = @"
-                        SELECT d.Id, d.[Name], d.Breed, d.Notes, d.ImageUrl, d.OwnerId                
+                        SELECT d.Id, d.[Name], d.Breed, d.Notes, d.ImageUrl, d.OwnerId,  o.[Name] as Owner                
                         FROM Dog d 
                         JOIN Owner o ON d.OwnerId = o.Id
                         WHERE o.Id = @Id
