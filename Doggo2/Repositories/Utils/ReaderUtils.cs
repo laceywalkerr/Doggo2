@@ -23,6 +23,10 @@ namespace Doggo2.Repositories.Utils
                 return null;
             }
         }
-        
+
+        //internal static string GetNullableString(int v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
