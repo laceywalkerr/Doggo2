@@ -38,7 +38,6 @@ namespace Doggo2.Repositories
                         JOIN Owner o ON d.OwnerId = o.Id
                     ";
 
-                    //cmd.Parameters.AddWithValue("@id", Id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<Dog> dogs = new List<Dog>();
@@ -116,5 +115,7 @@ namespace Doggo2.Repositories
                 }
             }
         }
+
+       
     }
 }

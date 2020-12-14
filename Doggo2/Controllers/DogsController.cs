@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Doggo2.Models;
+using Doggo2.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,11 +9,21 @@ using System.Threading.Tasks;
 
 namespace Doggo2.Controllers
 {
-    public class DogController : Controller
-    {
+    public class DogsController : Controller
+    { 
+
+       private readonly IDogRepository _dogRepo;
+
+        // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
+        public DogsController(IDogRepository dogRepository)
+        {
+            _dogRepo = dogRepository;
+        }
+        
         // GET: DogController
         public ActionResult Index()
         {
+            List<Dog> dogs = _dogRepo.GetAllDogs();
             return View();
         }
 
