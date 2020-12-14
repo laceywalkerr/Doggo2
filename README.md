@@ -742,7 +742,8 @@ Create a model for `Dog` and implement a `DogRepository` and `DogController` tha
 # ************************************************************************
 # ************************************************************************
 
-# Part #2
+
+# Part #3
 
 # View Models
 
@@ -800,7 +801,7 @@ The problem is that in ASP<span>.NET</span>, we can only pass a View **one** typ
 
 The answer is to wrap all the things up in a single class called a View Model. The difference between regular models and view models is that regular models are meant to mimic the shape of our database tables. View models are meant to mimic the shape of our html pages. It may be helpful to think of view models as similar to react state. Looking at the mockup again, what are the things on the page that would belong in state?
 
-![](https://i.imgur.com/oG367Ik.png)
+![](https://i.imgur.com/IS5NiAs.png)
 
 - An Owner object
 - A list of Dogs
