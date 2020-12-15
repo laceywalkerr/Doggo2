@@ -89,7 +89,7 @@ namespace Doggo2.Repositories
                         SELECT d.Id, d.[Name], d.Breed, d.Notes, d.ImageUrl, d.OwnerId,  o.[Name] as Owner                
                         FROM Dog d 
                         JOIN Owner o ON d.OwnerId = o.Id
-                        WHERE o.Id = @Id
+                        WHERE d.Id = @id
                     ";
 
                     cmd.Parameters.AddWithValue("@id", id);
@@ -140,8 +140,8 @@ namespace Doggo2.Repositories
 
                     cmd.Parameters.AddWithValue("@name", dog.Name);
                     cmd.Parameters.AddWithValue("@breed", dog.Breed);
-                    cmd.Parameters.AddWithValue("@notes", dog.Notes);
-                    cmd.Parameters.AddWithValue("@imageUrl", dog.ImageUrl);
+                    cmd.Parameters.AddWithValue("@notes", ReaderUtils.GetNullableParam(dog.Notes));
+                    cmd.Parameters.AddWithValue("@imageUrl", ReaderUtils.GetNullableParam(dog.Notes));
                     cmd.Parameters.AddWithValue("@ownerId", dog.OwnerId);
 
                     int id = (int)cmd.ExecuteScalar();
