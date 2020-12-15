@@ -28,7 +28,8 @@ namespace Doggo2.Controllers
         // GET: WalkController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Walk walk = _walkRepo.GetWalkById(id);
+            return View(walk);
         }
 
         // GET: WalkController/Create
