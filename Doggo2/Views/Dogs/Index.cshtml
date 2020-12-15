@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Owner.Name)
+                @Html.DisplayNameFor(model => model.Owner)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Breed)
@@ -52,8 +52,22 @@
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
             <td>
+                @if (item.ImageUrl != null)
+                {
+                    <img src="@item.ImageUrl" alt="@item.Name"    
+                         width="150" height="150" />
 
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                }
+                else
+                {
+                    <img src="https://cdn.pixabay.com/photo/2018/08/15/13/12/dog-3608037_960_720.jpg" 
+                        class="card-img-top"
+                         alt="Doggo"
+                         width="50" height="150"
+                         />
+                }
+
+                @*@Html.DisplayFor(modelItem => item.ImageUrl)*@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

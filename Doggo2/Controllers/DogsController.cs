@@ -95,11 +95,12 @@ namespace Doggo2.Controllers
         // POST: DogController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Dog dog)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _dogRepo.DeleteDog(id);
+                return RedirectToAction("Index");
             }
             catch
             {
