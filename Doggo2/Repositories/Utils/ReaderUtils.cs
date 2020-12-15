@@ -24,6 +24,18 @@ namespace Doggo2.Repositories.Utils
             }
         }
 
+        public static object GetNullableParam(object value)
+        {
+            if (value != null)
+            {
+                return value;
+            }
+            else
+            {
+                return DBNull.Value;
+            }
+        }
+
         //internal static string GetNullableString(int v)
         //{
         //    throw new NotImplementedException();
