@@ -8,5 +8,10 @@ namespace Doggo2.Repositories
         List<Walker> GetAllWalkers();
         Walker GetWalkerById(int id);
         List<Walker> GetWalkersInNeighborhood(int neighborhoodId);
+
+        //void AddWalker(Walker walker);
+        void UpdateWalker(Walker walker);
+        void DeleteWalker(int walkerId);
+        void AddWalker(Walker walker);
     }
 }
