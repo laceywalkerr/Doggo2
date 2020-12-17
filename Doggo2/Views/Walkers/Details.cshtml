@@ -1,22 +1,81 @@
-﻿@model Doggo2.Models.Walker
+﻿@model Doggo2.Models.ViewModels.WalkerProfileViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<div>
+    <h1 class="mb-4">"Walker Profile"</h1>
+
+    <section class="container">
+        <img style="width:100px;float:left;margin-right:20px"
+             src=@Model.Walker.ImageUrl />
+
+        <div>
+            <label class="font-weight-bold">Name:</label>
+            <span>@Model.Walker.Name</span>
+        </div>
+        <div>
+            <label class="font-weight-bold">NeighborhoodId:</label>
+            <span>@Model.Walker.Neighborhood.Name</span>
+        </div>
+
+    </section>
+
+    <hr class="mt-5" />
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <section class="col-8 container mt-5">
+            <h1 class="text-left">Dogs</h1>
+
+            <div class="row">
+                @foreach (Walk walk in Model.Walks)
+                {
+                    <div class="card m-4" style="width: 18rem;">
+
+                        <div class="card-body">
+                            <div>
+                                <label class="font-weight-bold">Date:</label>
+                                <span>@Model.Walk.Date</span>
+                            </div>
+                            <div>
+                                <label class="font-weight-bold">Client:</label>
+                                <span>@Model.Dog.Name</span>
+                            </div>
+                            <div>
+                                <label class="font-weight-bold">Duration:</label>
+                                <p>@Model.Walk.Duration</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+
+        @*<section class="col-lg-4 col-md-8 container mt-5">
+            <h1>Total Walk Time</h1>
+
+            <ul class="list-group mt-4">
+                @foreach (Walk walk in Model.Walks)
+                {
+                    <li class="list-group-item disabled" aria-disabled="true">
+                        <img src="@Mode.Walker.ImageUrl" style="width:50px" />
+                        <span class="font-weight-bold ml-4">@Walker.Name</span>
+                    </li>
+                }
+            </ul>
+        </section>*@
+    </div>
+</div>
+
+
+@*<h1>Details</h1>
 
 <div>
     <h4>Walker</h4>
     <hr />
     <dl class="row">
-
-
-
-
-
-
-
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Id)
         </dt>
@@ -46,4 +105,4 @@
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@

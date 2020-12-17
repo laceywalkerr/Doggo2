@@ -31,6 +31,10 @@ namespace Doggo2.Controllers
         // GET: OwnersController
         public ActionResult Index()
         {
+            //int currentUserId = GetCurrentUserId();
+
+            //return RedirectToAction("Details", new { id = currentUserId });
+
             List<Owner> owners = _ownerRepo.GetAllOwners();
             return View(owners);
         }
@@ -38,6 +42,13 @@ namespace Doggo2.Controllers
         // GET: OwnersController/Details/5
         public ActionResult Details(int id)
         {
+            //int currentUserId = GetCurrentUserId();
+
+            //if (currentUserId != id)
+            //{
+            //    return NotFound();
+            //}
+
             Owner owner = _ownerRepo.GetOwnerById(id);
             List<Dog> dogs = _dogRepo.GetDogsByOwnerId(owner.Id);
             List<Walker> walkers = _walkerRepo.GetWalkersInNeighborhood(owner.NeighborhoodId);

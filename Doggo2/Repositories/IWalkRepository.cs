@@ -9,5 +9,6 @@ namespace Doggo2.Repositories
         Walk GetWalkById(int id);
 
         List<Walk> GetWalkByWalkerId(int walkerId);
+
     }
 }
