@@ -13,6 +13,10 @@ namespace Doggo2.Models
         public DateTime Date { get; set; }
         public int Duration { get; set; }
         public int WalkerId { get; set; }
+
+        public Walker Walker { get; set; }
+
+        public Dog Dog { get; set; }
         public int DogId { get; set; }
 
     }

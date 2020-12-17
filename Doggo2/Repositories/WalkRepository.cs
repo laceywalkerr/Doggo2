@@ -110,7 +110,7 @@ namespace Doggo2.Repositories
                 {
                     cmd.CommandText = @"
                     SELECT Id, Date, Duration, WalkerId, DogId
-                    FROM Walk
+                    FROM Walks
                     WHERE WalkerId = @walkerId
                     ";
 

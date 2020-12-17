@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+<section>
 <div>
-    <h1 class="mb-4">"Walker Profile"</h1>
+    <h1 class="mb-4">Walker Profile</h1>
 
     <section class="container">
         <img style="width:100px;float:left;margin-right:20px"
@@ -17,7 +17,7 @@
         </div>
         <div>
             <label class="font-weight-bold">NeighborhoodId:</label>
-            <span>@Model.Walker.Neighborhood.Name</span>
+            <span>@Model.Walker.NeighborhoodId</span>
         </div>
 
     </section>
@@ -25,49 +25,37 @@
     <hr class="mt-5" />
     <div class="clearfix"></div>
 
-    <div class="row">
-        <section class="col-8 container mt-5">
-            <h1 class="text-left">Dogs</h1>
+     <div class="row">
+            <section class="col-lg-8 mt-5">
+                <h1 class="text-left">Walks</h1>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Client</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Walk walk in Model.Walks)
+                        {
+                            <tr>
+                                <td>@walk.Date</td>
+                                <td>@walk.Dog.Owner.Name</td>
+                                <td>@(walk.Duration / 60) min</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </section>
 
-            <div class="row">
-                @foreach (Walk walk in Model.Walks)
-                {
-                    <div class="card m-4" style="width: 18rem;">
+            <section class="col-lg-4 col-md-8 container mt-5">
+                <h1>Total Walk Time</h1>
+                <h3 class="text-info">@Model.TotalTimeWalkedDisplay</h3>
+            </section>
+        </div>
+    </section>
 
-                        <div class="card-body">
-                            <div>
-                                <label class="font-weight-bold">Date:</label>
-                                <span>@Model.Walk.Date</span>
-                            </div>
-                            <div>
-                                <label class="font-weight-bold">Client:</label>
-                                <span>@Model.Dog.Name</span>
-                            </div>
-                            <div>
-                                <label class="font-weight-bold">Duration:</label>
-                                <p>@Model.Walk.Duration</p>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </section>
-
-        @*<section class="col-lg-4 col-md-8 container mt-5">
-            <h1>Total Walk Time</h1>
-
-            <ul class="list-group mt-4">
-                @foreach (Walk walk in Model.Walks)
-                {
-                    <li class="list-group-item disabled" aria-disabled="true">
-                        <img src="@Mode.Walker.ImageUrl" style="width:50px" />
-                        <span class="font-weight-bold ml-4">@Walker.Name</span>
-                    </li>
-                }
-            </ul>
-        </section>*@
-    </div>
-</div>
 
 
 @*<h1>Details</h1>
