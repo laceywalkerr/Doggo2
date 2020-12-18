@@ -1,4 +1,5 @@
 ﻿using Doggo2.Models;
+using Doggo2.Models.ViewModels;
 using Doggo2.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +15,13 @@ namespace Doggo2.Controllers
     public class WalkersController : Controller
     {
         private readonly IWalkerRepository _walkerRepo;
+        private readonly IWalkRepository _walkRepo;
 
         // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
-        public WalkersController(IWalkerRepository walkerRepository)
+        public WalkersController(IWalkerRepository walkerRepository, IWalkRepository walkRepository)
         {
             _walkerRepo = walkerRepository;
+            _walkRepo = walkRepository;
         }
 
         // GET: WalkersController
@@ -33,7 +36,15 @@ namespace Doggo2.Controllers
         public ActionResult Details(int id)
         {
             Walker walker = _walkerRepo.GetWalkerById(id);
-            return View(walker);
+            List<Walk> walk = _walkRepo.GetWalkByWalkerId(walker.Id);
+
+            WalkerProfileViewModel vm = new WalkerProfileViewModel()
+            {
+                Walks = walk,
+                Walker = walker
+
+            };
+            return View(vm);
         }
 
         // GET: WalkersController/Create
@@ -45,36 +56,45 @@ namespace Doggo2.Controllers
         // POST: WalkersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Walker walker)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                _walkerRepo.AddWalker(walker);
+                return RedirectToAction("Index");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(walker);
             }
         }
 
         // GET: WalkersController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            Walker walker = _walkerRepo.GetWalkerById(id);
+
+            if (walker == null)
+            {
+                return NotFound();
+            }
+            return View(walker);
         }
 
         // POST: WalkersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Walker walker)
         {
+
             try
             {
+                _walkerRepo.UpdateWalker(walker);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(walker);
             }
         }
 

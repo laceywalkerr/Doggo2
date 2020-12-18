@@ -10,6 +10,15 @@ namespace Doggo2.Models.ViewModels
         public Walker Walker { get; set; }
         public List<Walker> Walkers { get; set; }
 
+        public Walk Walk { get; set; } 
+        
+        public List<Walk> Walks { get; set; }
+
+        public Neighborhood Neighborhood { get; set; }
+
+        public List<Neighborhood> Neighborhoods { get; set; }
+
+        public string TotalTimeWalkedDisplay { get; set; }
         public Dog Dog { get; set; }
         public List<Dog> Dogs { get; set; }
     }
