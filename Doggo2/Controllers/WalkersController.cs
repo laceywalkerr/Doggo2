@@ -36,12 +36,26 @@ namespace Doggo2.Controllers
         public ActionResult Details(int id)
         {
             Walker walker = _walkerRepo.GetWalkerById(id);
+
+
+            if (walker == null)
+            {
+                return NotFound();
+            }
+
+
             List<Walk> walk = _walkRepo.GetWalkByWalkerId(walker.Id);
+            int totalWalkSeconds = walk.Sum(walk => walk.Duration);
+            TimeSpan walkTime = TimeSpan.FromSeconds(totalWalkSeconds);
+            string walkTimeDisplay = $"{walkTime.Hours}hr {walkTime.Minutes}min";
+
+
 
             WalkerProfileViewModel vm = new WalkerProfileViewModel()
             {
                 Walks = walk,
-                Walker = walker
+                Walker = walker,
+                TotalTimeWalkedDisplay = walkTimeDisplay
 
             };
             return View(vm);
